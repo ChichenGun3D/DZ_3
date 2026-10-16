@@ -10,48 +10,42 @@ namespace ПРОЕКТ4
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Console.Write("Введите номер карты (от 6 до 14): ");
-                int k = int.Parse(Console.ReadLine());
+            Console.Write("Введите строку: ");
+            string input = Console.ReadLine().ToLower();
 
-                string name = "";
+            string result;
 
-                if (k == 11)
-                {
-                    name = "валет";
-                }
-                else if (k == 12)
-                {
-                    name = "дама";
-                }
-                else if (k == 13)
-                {
-                    name = "король";
-                }
-                else if (k == 14)
-                {
-                    name = "туз";
-                }
-                else if (k >= 6 && k <= 10)
-                {
-                    name = k + "ка";
-                }
-                else
-                {
-                    name = "неизвестная карта";
-                }
+            if (input == "jabroni")
+            {
+                result = "Patron Tequila";
+            }
+            else if (input == "school counselor")
+            {
+                result = "Anything with Alcohol";
+            }
+            else if (input == "programmer")
+            {
+                result = "Hipster Craft Beer";
+            }
+            else if (input == "bike gang member")
+            {
+                result = "Moonshine";
+            }
+            else if (input == "politician")
+            {
+                result = "Your tax dollars";
+            }
+            else if (input == "rapper")
+            {
+                result = "Cristal";
+            }
+            else
+            {
+                result = "Beer";
+            }
 
-                Console.WriteLine("Достоинство карты: " + name);
-            }
-            catch
-            {
-                Console.WriteLine("Ошибка: введено не число.");
-            }
-            finally
-            {
-                Console.ReadKey();
-            }
+            Console.WriteLine(result);
+            Console.ReadKey();
         }
     }
 }
