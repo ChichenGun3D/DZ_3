@@ -10,37 +10,48 @@ namespace ПРОЕКТ4
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[10];
-
-            Console.WriteLine("Введите 10 чисел:");
-            for (int i = 0; i < 10; i++)
+            try
             {
-                Console.Write("Число " + (i + 1) + ": ");
-                numbers[i] = int.Parse(Console.ReadLine());
-            }
+                Console.Write("Введите номер карты (от 6 до 14): ");
+                int k = int.Parse(Console.ReadLine());
 
-            int badIndex = 0;
+                string name = "";
 
-            for (int i = 1; i < 10; i++)
-            {
-                if (numbers[i] <= numbers[i - 1])
+                if (k == 11)
                 {
-                    badIndex = i + 1;
-                    break;
+                    name = "валет";
                 }
-            }
+                else if (k == 12)
+                {
+                    name = "дама";
+                }
+                else if (k == 13)
+                {
+                    name = "король";
+                }
+                else if (k == 14)
+                {
+                    name = "туз";
+                }
+                else if (k >= 6 && k <= 10)
+                {
+                    name = k + "ка";
+                }
+                else
+                {
+                    name = "неизвестная карта";
+                }
 
-            if (badIndex == 0)
-            {
-                Console.WriteLine("Последовательность упорядочена по возрастанию.");
+                Console.WriteLine("Достоинство карты: " + name);
             }
-            else
+            catch
             {
-                Console.WriteLine("Последовательность НЕ упорядочена.");
-                Console.WriteLine("Порядковый номер первого нарушения: " + badIndex);
+                Console.WriteLine("Ошибка: введено не число.");
             }
-
-            Console.ReadKey();
+            finally
+            {
+                Console.ReadKey();
+            }
         }
     }
 }
