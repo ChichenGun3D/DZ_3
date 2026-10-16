@@ -87,7 +87,7 @@ namespace ПРОЕКТ4
                 monthName = "декабря";
                 day = day - 334;
             }
-
+             
             
             Console.WriteLine("День: " + day + " " + monthName);
             Console.ReadKey();
