@@ -10,12 +10,49 @@ namespace ПРОЕКТ4
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите число от 1 до 365: ");
+            Console.Write("Введите год: ");
+            int year = int.Parse(Console.ReadLine());
+
+            Console.Write("Введите число от 1 до 366: ");
             int day = int.Parse(Console.ReadLine());
 
-            if (day < 1 || day > 365)
+            bool isLeap = false;
+            if (year % 400 == 0)
             {
-                Console.WriteLine("Ошибка: число должно быть от 1 до 365!");
+                isLeap = true;
+            }
+            else if (year % 100 == 0)
+            {
+                isLeap = false;
+            }
+            else if (year % 4 == 0)
+            {
+                isLeap = true;
+            }
+
+            int februaryDays;
+            if (isLeap)
+            {
+                februaryDays = 29;
+            }
+            else
+            {
+                februaryDays = 28;
+            }
+
+            int maxDay;
+            if (isLeap)
+            {
+                maxDay = 366;
+            }
+            else
+            {
+                maxDay = 365;
+            }
+
+            if (day < 1 || day > maxDay)
+            {
+                Console.WriteLine("Ошибка: число должно быть от 1 до " + maxDay + "!");
             }
             else
             {
@@ -27,73 +64,74 @@ namespace ПРОЕКТ4
                     monthNumber = 1;
                     monthName = "января";
                 }
-                else if (day <= 59)
+                else if (day <= 31 + februaryDays)
                 {
                     monthNumber = 2;
                     monthName = "февраля";
                     day = day - 31;
                 }
-                else if (day <= 90)
+                else if (day <= 31 + februaryDays + 31)
                 {
                     monthNumber = 3;
                     monthName = "марта";
-                    day = day - 59;
+                    day = day - (31 + februaryDays);
                 }
-                else if (day <= 120)
+                else if (day <= 31 + februaryDays + 31 + 30)
                 {
                     monthNumber = 4;
                     monthName = "апреля";
-                    day = day - 90;
+                    day = day - (31 + februaryDays + 31);
                 }
-                else if (day <= 151)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31)
                 {
                     monthNumber = 5;
                     monthName = "мая";
-                    day = day - 120;
+                    day = day - (31 + februaryDays + 31 + 30);
                 }
-                else if (day <= 181)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30)
                 {
                     monthNumber = 6;
                     monthName = "июня";
-                    day = day - 151;
+                    day = day - (31 + februaryDays + 31 + 30 + 31);
                 }
-                else if (day <= 212)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30 + 31)
                 {
                     monthNumber = 7;
                     monthName = "июля";
-                    day = day - 181;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30);
                 }
-                else if (day <= 243)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31)
                 {
                     monthNumber = 8;
                     monthName = "августа";
-                    day = day - 212;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30 + 31);
                 }
-                else if (day <= 273)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30)
                 {
                     monthNumber = 9;
                     monthName = "сентября";
-                    day = day - 243;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31);
                 }
-                else if (day <= 304)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31)
                 {
                     monthNumber = 10;
                     monthName = "октября";
-                    day = day - 273;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30);
                 }
-                else if (day <= 334)
+                else if (day <= 31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30)
                 {
                     monthNumber = 11;
                     monthName = "ноября";
-                    day = day - 304;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31);
                 }
                 else
                 {
                     monthNumber = 12;
                     monthName = "декабря";
-                    day = day - 334;
+                    day = day - (31 + februaryDays + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30);
                 }
 
+                Console.WriteLine("Год: " + year);
                 Console.WriteLine("Месяц: " + monthNumber);
                 Console.WriteLine("День: " + day + " " + monthName);
             }
