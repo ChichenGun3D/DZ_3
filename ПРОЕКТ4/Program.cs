@@ -12,7 +12,7 @@ namespace ПРОЕКТ4
         {
             Console.Write("Введите число от 1 до 365: ");
             int day = int.Parse(Console.ReadLine());
-
+             
             if (day < 1 || day > 365)
             {
                 Console.WriteLine("Ошибка: число должно быть от 1 до 365!");
