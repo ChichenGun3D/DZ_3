@@ -1,51 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 
-namespace ПРОЕКТ4
+class Program
 {
-    internal class Program
+    enum DaysOfWeek
     {
-        static void Main(string[] args)
+        Понедельник = 1,
+        Вторник,
+        Среда,
+        Четверг,
+        Пятница,
+        Суббота,
+        Воскресенье
+    }
+
+    static void Main()
+    {
+        Console.Write("Введите номер дня недели (от 1 до 7): ");
+        int dayNumber = int.Parse(Console.ReadLine());
+
+        if (dayNumber >= 1 && dayNumber <= 7)
         {
-            Console.Write("Введите строку: ");
-            string input = Console.ReadLine().ToLower();
-
-            string result;
-
-            if (input == "jabroni")
-            {
-                result = "Patron Tequila";
-            }
-            else if (input == "school counselor")
-            {
-                result = "Anything with Alcohol";
-            }
-            else if (input == "programmer")
-            {
-                result = "Hipster Craft Beer";
-            }
-            else if (input == "bike gang member")
-            {
-                result = "Moonshine";
-            }
-            else if (input == "politician")
-            {
-                result = "Your tax dollars";
-            }
-            else if (input == "rapper")
-            {
-                result = "Cristal";
-            }
-            else
-            {
-                result = "Beer";
-            }
-
-            Console.WriteLine(result);
-            Console.ReadKey();
+            DaysOfWeek day = (DaysOfWeek)dayNumber;
+            Console.WriteLine(day);
         }
+        else
+        {
+            Console.WriteLine("Ошибка: число должно быть от 1 до 7.");
+        }
+
+        Console.ReadKey();
     }
 }
