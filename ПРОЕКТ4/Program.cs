@@ -3,32 +3,21 @@ using System;
 
 class Program
 {
-    enum DaysOfWeek
-    {
-        Понедельник = 1,
-        Вторник,
-        Среда,
-        Четверг,
-        Пятница,
-        Суббота,
-        Воскресенье
-    }
-
     static void Main()
     {
-        Console.Write("Введите номер дня недели (от 1 до 7): ");
-        int dayNumber = int.Parse(Console.ReadLine());
+        string[] items = { "Hello Kitty", "Car", "Barbie doll", "Book", "Hello Kitty", "Barbie doll", "Phone" };
 
-        if (dayNumber >= 1 && dayNumber <= 7)
+        int bag = 0;
+
+        foreach (string item in items)
         {
-            DaysOfWeek day = (DaysOfWeek)dayNumber;
-            Console.WriteLine(day);
-        }
-        else
-        {
-            Console.WriteLine("Ошибка: число должно быть от 1 до 7.");
+            if (item == "Hello Kitty" || item == "Barbie doll")
+            {
+                bag = bag + 1;
+            }
         }
 
+        Console.WriteLine("Кукол в сумке: " + bag);
         Console.ReadKey();
     }
 }
